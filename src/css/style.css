@@ -5,7 +5,8 @@
 
 .frame-header {
     cursor: move;
-    background-color: blue;
+    /*TODO: Gradient color*/
+    background-color: #4951ff;
     padding: 10px;
     z-index: 10;
 }
@@ -13,4 +14,10 @@
 .window-frame {
     width: 100%;
     height: 100%;
+    border: none;
+}
+
+.ctx-button {
+    border: none;
+    background-color: rgba(255,255,255,0.8);
 }

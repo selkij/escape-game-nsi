@@ -7,16 +7,30 @@
     <title>Escape Game</title>
 </head>
 <body>
-    <div id="chat-frame-container" class="frame-container">
-        <div class="frame-header">Messagerie</div>
+    <!--TODO: Make window resizable-->
+    <!--FIXME: Windows on top of eachother-->
+    <div id="chat-frame-container" class="frame-container" style="width: 400px; height: 500px">
+        <div class="frame-header">
+            <p>Messagerie</p>
+            <button class="ctx-button">🗕</button>
+            <button class="ctx-button">🗖</button>
+        </div>
         <iframe src="chat.html" id="chat-frame" class="window-frame"></iframe>
     </div>
-    <div id="browser-frame-container" class="frame-container">
-        <div id="browser-frame-header">Navigateur Internet</div>
+    <div id="browser-frame-container" class="frame-container" style="width: 1000px; height: 700px">
+        <div class="frame-header">
+            <p>Navigateur Internet</p>
+            <button class="ctx-button">🗕</button>
+            <button class="ctx-button">🗖</button>
+        </div>
         <iframe src="browser.html" id="browser-frame" class="window-frame"></iframe>
     </div>
-    <div id="manual-fra me-container" class="frame-container">
-        <div id="manual-frame-header">PDF viewer - Manuel</div>
+    <div id="manual-frame-container" class="frame-container" style="width: 700px; height: 700px">
+        <div class="frame-header">
+            <p>PDF viewer - Manuel</p>
+            <button class="ctx-button">🗕</button>
+            <button class="ctx-button">🗖</button>
+        </div>
         <iframe src="manual.html" id="manual-frame" class="window-frame"></iframe>
     </div>
     <script src="js/drag.js"></script>
