@@ -1,4 +1,16 @@
-iframe {
-    flex: 1;
-    margin-bottom: 20px;
+.frame-container {
+    position: absolute;
+    border: 5px solid #000;
+}
+
+.frame-header {
+    cursor: move;
+    background-color: blue;
+    padding: 10px;
+    z-index: 10;
+}
+
+.window-frame {
+    width: 100%;
+    height: 100%;
 }

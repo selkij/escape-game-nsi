@@ -7,8 +7,18 @@
     <title>Escape Game</title>
 </head>
 <body>
-    <iframe src="chat.html" id="chat-frame">
-    <iframe src="browser.html" id="browser-frame">
-    <iframe src="manual.html" id="manual-frame">
+    <div id="chat-frame-container" class="frame-container">
+        <div class="frame-header">Messagerie</div>
+        <iframe src="chat.html" id="chat-frame" class="window-frame"></iframe>
+    </div>
+    <div id="browser-frame-container" class="frame-container">
+        <div id="browser-frame-header">Navigateur Internet</div>
+        <iframe src="browser.html" id="browser-frame" class="window-frame"></iframe>
+    </div>
+    <div id="manual-fra me-container" class="frame-container">
+        <div id="manual-frame-header">PDF viewer - Manuel</div>
+        <iframe src="manual.html" id="manual-frame" class="window-frame"></iframe>
+    </div>
+    <script src="js/drag.js"></script>
 </body>
 </html>
