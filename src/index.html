@@ -4,32 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <!--FIXME: doesn't work-->
+    <script src="js/script.js"></script>
     <title>Escape Game</title>
 </head>
 <body>
-    <!--TODO: Make window resizable-->
-    <!--FIXME: Windows on top of eachother-->
     <div id="chat-frame-container" class="frame-container" style="width: 400px; height: 500px">
         <div class="frame-header">
-            <p>Messagerie</p>
-            <button class="ctx-button">🗕</button>
-            <button class="ctx-button">🗖</button>
+            <h3 class="window-name-header">Messagerie</h3>
+            <span class="ctx-button-span">
+                <button class="ctx-button">🗕</button>
+                <button class="ctx-button">🗖</button>
+            </span>
         </div>
         <iframe src="chat.html" id="chat-frame" class="window-frame"></iframe>
     </div>
     <div id="browser-frame-container" class="frame-container" style="width: 1000px; height: 700px">
         <div class="frame-header">
-            <p>Navigateur Internet</p>
-            <button class="ctx-button">🗕</button>
-            <button class="ctx-button">🗖</button>
+            <h3 class="window-name-header">Navigateur Internet</h3>
+            <span class="ctx-button-span">
+                <button class="ctx-button">🗕</button>
+                <button class="ctx-button">🗖</button>
+            </span>
         </div>
         <iframe src="browser.html" id="browser-frame" class="window-frame"></iframe>
     </div>
-    <div id="manual-frame-container" class="frame-container" style="width: 700px; height: 700px">
+    <div id="manual-frame-container" class="frame-container" style="width: 700px; height: 400px">
         <div class="frame-header">
-            <p>PDF viewer - Manuel</p>
-            <button class="ctx-button">🗕</button>
-            <button class="ctx-button">🗖</button>
+            <h3 class="window-name-header">PDF viewer - Manuel</h3>
+            <span class="ctx-button-span">
+                <button class="ctx-button">🗕</button>
+                <button class="ctx-button">🗖</button>
+            </span>
         </div>
         <iframe src="manual.html" id="manual-frame" class="window-frame"></iframe>
     </div>

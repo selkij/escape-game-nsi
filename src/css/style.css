@@ -1,23 +1,47 @@
+body {
+    background-image: url('../img/wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .frame-container {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    border: 5px solid #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
 }
 
 .frame-header {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(15,72,158,1) 0%, rgba(0,212,255,1) 100%);
+    align-items: flex-start;
     cursor: move;
-    /*TODO: Gradient color*/
-    background-color: #4951ff;
-    padding: 10px;
-    z-index: 10;
+}
+
+.window-name-header {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Trebuchet MS', serif;
+    font-size: 18px;
+    color: whitesmoke;
 }
 
 .window-frame {
-    width: 100%;
-    height: 100%;
+    flex-grow: 1;
+    background-color: white;
     border: none;
 }
 
 .ctx-button {
     border: none;
     background-color: rgba(255,255,255,0.8);
+    border: 1px solid rgb(0, 0, 0, 0.3);
+}
+
+.ctx-button-span {
+    margin: 5px;
 }

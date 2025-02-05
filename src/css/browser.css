@@ -1,0 +1,30 @@
+html, body {
+    width: 100%; /* force la page à se mettre à la taille de l'iframe et empêche le scroll */
+    height: 100%;
+    margin: 0px;
+    font-family: Tahoma, serif;
+    overflow: hidden; 
+}
+
+h1 {
+    font-family: "Courier New", serif;
+}
+
+p {
+    font-family: serif;
+    font-size: 14px;
+}
+
+#search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    background-color: rgb(240, 240, 240);
+    background-color: rgb(173, 173, 173);
+}
+
+#link-input{
+    color : grey
+    /*TODO: Le faire remplir sur la longueur*/
+}

@@ -1,16 +1,10 @@
+
 html, body {
     width: 100%; /* force la page à se mettre à la taille de l'iframe et enpêche le scroll */
     height: 100%;
     margin: 5px;
     font-family: Tahoma, serif;
     overflow: hidden; 
-}
-
-#message-box {
-    background-color: rgb(220, 220, 220);
-    margin-right: 30px;
-    border: 2px solid black;
-    padding: 5px;
 }
 
 h1 {
