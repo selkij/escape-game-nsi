@@ -28,3 +28,8 @@ p {
     color : grey
     /*TODO: Le faire remplir sur la longueur*/
 }
+
+#browser-frame {
+    width: 100%;
+    height: 100%;
+}

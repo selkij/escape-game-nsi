@@ -1,0 +1,48 @@
+html, body {
+    width: 100%; /* force la page à se mettre à la taille de l'iframe et enpêche le scroll */
+    height: 100%;
+    margin: 5px;
+
+    background-color: black;
+    color: white;
+
+    font-family: Tahoma, serif;
+    overflow: hidden; 
+}
+
+p {
+    font-family: consolas;
+    font-size: 14px;
+}
+
+#command-history {
+    max-height: 200px;
+    overflow-y: scroll;
+    /*TODO: Reduce element padding*/
+    margin-top: 4px;
+}
+
+#command-input {
+    border: none;
+    background: none;
+    color: white;
+    font-family: consolas;
+
+    /*Add a caret for when it isn't focused for the user to see where he should type*/
+    animation: blink-empty 0.5s infinite alternate-reverse;
+    background-image: linear-gradient(rgb(255, 255, 255, 1), rgb(255, 255, 255, 1));
+    background-position: 1px  center;
+    background-repeat: no-repeat;
+    background-size: 1px 1.2em;
+}
+
+@keyframes blink-empty {
+    from { background-image: linear-gradient(rgb(255, 255, 255, 1), rgb(255, 255, 255, 1)); }
+    to { background-image: linear-gradient(rgb(255, 255, 255, 0), rgb(255, 255, 255, 0)); }
+}
+
+#command-input:focus {
+    outline: none;
+    animation: none;
+    background-image: none;
+}
