@@ -10,7 +10,6 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
 }
 
 .frame-header {
@@ -19,8 +18,11 @@ body {
     width: auto;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(15,72,158,1) 0%, rgba(0,212,255,1) 100%);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 1);
+    clip-path: inset(-10px -10px 0px -10px);
     align-items: flex-start;
     cursor: move;
+    height: auto;
 }
 
 .window-name-header {
@@ -35,6 +37,8 @@ body {
 .window-frame {
     flex-grow: 1;
     background-color: white;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 1);
+    clip-path: inset(0px -10px -10px -10px);
     border: none;
 }
 

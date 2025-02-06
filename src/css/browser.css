@@ -1,7 +1,7 @@
 html, body {
     width: 100%; /* force la page à se mettre à la taille de l'iframe et empêche le scroll */
     height: 100%;
-    margin: 0px;
+    margin: 0;
     font-family: Tahoma, serif;
     overflow: hidden; 
 }
@@ -20,16 +20,17 @@ p {
     justify-content: center;
     align-items: center;
     height: 30px;
-    background-color: rgb(240, 240, 240);
     background-color: rgb(173, 173, 173);
 }
 
 #link-input{
-    color : grey
+    color : grey;
+    width: 50%;
     /*TODO: Le faire remplir sur la longueur*/
 }
 
 #browser-frame {
     width: 100%;
     height: 100%;
+    border: none;
 }

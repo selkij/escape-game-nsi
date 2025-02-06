@@ -14,7 +14,7 @@
             <h3 class="window-name-header">Messagerie</h3>
             <span class="ctx-button-span">
                 <!--TODO: make it work-->
-                <button class="ctx-button">🗕</button>
+                <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('chat-frame'))">🗕</button>
             </span>
         </div>
         <iframe src="chat.html" id="chat-frame" class="window-frame"></iframe>
@@ -23,16 +23,16 @@
         <div class="frame-header">
             <h3 class="window-name-header">Navigateur Internet</h3>
             <span class="ctx-button-span">
-                <button class="ctx-button">🗕</button>
+                <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('browser-frame'))">🗕</button>
             </span>
         </div>
         <iframe src="browser.html" id="browser-frame" class="window-frame"></iframe>
     </div>
     <div id="manual-frame-container" class="frame-container" style="width: 700px; height: 500px">
         <div class="frame-header">
-            <h3 class="window-name-header">PDF viewer - Manuel</h3>
+            <h3 class="window-name-header">TDF viewer - Manuel</h3>
             <span class="ctx-button-span">
-                <button class="ctx-button">🗕</button>
+                <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('manual-frame'))">🗕</button>
             </span>
         </div>
         <iframe src="manual.html" id="manual-frame" class="window-frame"></iframe>
@@ -41,11 +41,11 @@
         <div class="frame-header">
             <h3 class="window-name-header">Invite de commandes</h3>
             <span class="ctx-button-span">
-                <button class="ctx-button">🗕</button>
+                <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('terminal-frame'))">🗕</button>
             </span>
         </div>
-        <iframe src="terminal.html" id="manual-frame" class="window-frame"></iframe>
+        <iframe src="terminal.html" id="terminal-frame" class="window-frame"></iframe>
     </div>
-    <script src="js/drag.js"></script>
+    <script src="js/window.js"></script>
 </body>
 </html>
