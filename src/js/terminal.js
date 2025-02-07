@@ -6,7 +6,7 @@ function addCommandHistory(msg) {
 }
 
 function executeCommand(command, args) {
-    alert('Executing command: ' + command + ' with args ' + args)
+    alert('Executing command: ' + command + ' with args ' + args);
     addCommandHistory(commandInput.value);
     switch(command) {
         case 'dir':
@@ -21,17 +21,18 @@ function executeCommand(command, args) {
 }
 
 commandInput.addEventListener('keydown', function(e) {
+    let args;
     if (e.key === 'Enter') {
         let command = commandInput.value.split(' ')[0];
-        if(commandInput.value.split(' ').length >= 2) {
-            let args = commandInput.value.split(' ');
+        if (commandInput.value.split(' ').length >= 2) {
+            args = commandInput.value.split(' ');
             args.shift(); // remove the command from the args array
             console.log("command: " + command + " args: " + args)
         } else {
             args = [];
             console.log("command: " + command + " args: empty")
         }
-        
+
         if (commandInput.value > 0) {
             executeCommand(command, args)
             commandInput.value = '';
@@ -40,7 +41,7 @@ commandInput.addEventListener('keydown', function(e) {
 });
 
 setInterval(() => {
-    if(document.activeElement != commandInput) {
+    if(document.activeElement !== commandInput) {
         commandInput.focus();
     }
 })

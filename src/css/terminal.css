@@ -1,7 +1,7 @@
 html, body {
     width: 100%; /* force la page à se mettre à la taille de l'iframe et enpêche le scroll */
     height: 100%;
-    margin: 5px;
+    margin: 3px;
 
     background-color: black;
     color: white;
@@ -11,28 +11,31 @@ html, body {
 }
 
 p {
-    font-family: consolas;
+    font-family: consolas, serif;
+    margin: 2px;
     font-size: 14px;
 }
 
+#terminal-box {
+    display: flex;
+}
+
 #command-history {
+    display: inline-block;
+    width: 100%;
     max-height: 200px;
     overflow-y: scroll;
     /*TODO: Reduce element padding*/
-    margin-top: 4px;
 }
 
 #command-input {
     border: none;
-    background: none;
     color: white;
-    font-family: consolas;
+    font-family: consolas, serif;
 
     /*Add a caret for when it isn't focused for the user to see where he should type*/
     animation: blink-empty 0.5s infinite alternate-reverse;
-    background-image: linear-gradient(rgb(255, 255, 255, 1), rgb(255, 255, 255, 1));
-    background-position: 1px  center;
-    background-repeat: no-repeat;
+    background: linear-gradient(rgb(255, 255, 255, 1), rgb(255, 255, 255, 1)) no-repeat 1px center;
     background-size: 1px 1.2em;
 }
 
