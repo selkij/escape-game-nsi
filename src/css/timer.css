@@ -1,3 +1,9 @@
 h1 {
     font-family: "Courier New", serif;
 }
+
+#timer {
+    font-size: 40px;
+    font-weight: bold;
+    color:red
+}
