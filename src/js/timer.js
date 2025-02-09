@@ -10,7 +10,10 @@ function startTimer() {
         if(seconds === 0) {
             if(minutes === 0) {
                 if(hours === 0) {
+                    
                     clearInterval(timerInterval);
+                    alert("C'est fini, au revoir");
+                    window.close()
                 } else {
                     hours--;
                     minutes = 59;
@@ -26,8 +29,9 @@ function startTimer() {
 
         document.getElementById('timer').textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
     }, 1);
-    alert('NEUIIL');
+    
 }
+
 
 function formatTime(time) {
     return time < 10 ? "0" + time : time;
