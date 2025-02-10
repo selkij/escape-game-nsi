@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/terminal.css">
+    <script src="js/terminalCmds.js"></script>
     <title>Terminal</title>
 </head>
 <body>
@@ -13,14 +14,11 @@
                 Linussoft® Binbows XD™ [Version 5.1.248601]<br>
                 Bienvenue sur l'invite de commande.
             </p>
-            <p>dir</p>
-            <p>ls</p>
-            <p>code .</p>
         </div>
-        <span id="command-box">
-            >
+        <div id="command-box">
+            <p id="command-prefix" style="display: inline">C:\Users\linfan></p> <!--Prefix-->
             <input placeholder="" id="command-input" autofocus>
-        </span>
+        </div>
     </div>
     <script src="js/terminal.js"></script>
 </body>

@@ -18,14 +18,15 @@ p {
 
 #terminal-box {
     display: flex;
+    flex-direction: column;
+    /*FIXME: command-input unfocusable after command-history scroll*/
 }
 
 #command-history {
-    display: inline-block;
-    width: 100%;
-    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 99%;
     overflow-y: scroll;
-    /*TODO: Reduce element padding*/
 }
 
 #command-input {
