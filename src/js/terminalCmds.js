@@ -1,6 +1,6 @@
 function dirCmd(currentDirectory) {
     switch(currentDirectory) {
-        case 'C:\\Users\\linfan':
+        case 'C:/Users/linfan':
             addCommandHistory("Documents/");
             addCommandHistory("Téléchargements/");
             addCommandHistory("chat.jpg");

@@ -1,9 +1,34 @@
-h1 {
+html, body {
+    width: 100%; /* force la page à se mettre à la taille de l'iframe et enpêche le scroll */
+    height: 100%;
+    font-family: Tahoma, serif;
+    overflow: hidden;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Digital Numbers Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Digital Numbers Regular'), url('../fonts/DigitalNumbers-Regular.woff') format('woff');
+}
+
+h3 {
     font-family: "Courier New", serif;
+    font-size: 15px;
+}
+
+#timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #timer {
-    font-size: 40px;
-    font-weight: bold;
-    color:red
+    background-color: rgb(220, 220, 220);
+    border: 1px solid black;
+    border-radius: 10px;
+    font-family: "Digital Numbers Regular", serif;
+    font-size: 35px;
 }

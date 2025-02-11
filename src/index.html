@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
     <title>Escape Game</title>
 </head>
 <body>
-    <div id="chat-frame-container" class="frame-container" style="width: 400px; height: 500px">
+    <!--Chat Page-->
+    <div id="chat-frame-container" class="frame-container" style="width: 400px; height: 500px; left: 1500px; top: 20px;">
         <div class="frame-header">
-            <h3 class="window-name-header">Messagerie</h3>
+            <h3 class="window-name-header">Messagerie | Anonyme</h3>
             <span class="ctx-button-span">
                 <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('chat-frame'))">🗕</button>
             </span>
         </div>
         <iframe src="chat.html" id="chat-frame" class="window-frame"></iframe>
     </div>
-    <div id="browser-frame-container" class="frame-container" style="width: 1000px; height: 700px">
+
+    <!--Web browser Page-->
+    <div id="browser-frame-container" class="frame-container" style="width: 1000px; height: 700px; left: 450px; top: 90px;">
         <div class="frame-header">
             <h3 class="window-name-header">Navigateur Internet</h3>
             <span class="ctx-button-span">
@@ -26,16 +28,18 @@
         </div>
         <iframe src="browser.html" id="browser-frame" class="window-frame"></iframe>
     </div>
-    <div id="manual-frame-container" class="frame-container" style="width: 700px; height: 500px">
+
+    <!--Manual Page-->
+    <div id="manual-frame-container" class="frame-container" style="width: 700px; height: 500px; left: 3px; top: 3px;">
         <div class="frame-header">
-            <h3 class="window-name-header">TDF viewer - Manuel</h3>
+            <h3 class="window-name-header">TDF viewer | Manuel.tdf</h3>
             <span class="ctx-button-span">
                 <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('manual-frame'))">🗕</button>
             </span>
         </div>
         <iframe src="manual.html" id="manual-frame" class="window-frame"></iframe>
     </div>
-    <div id="terminal-frame-container" class="frame-container" style="width: 600px; height: 400px">
+    <div id="terminal-frame-container" class="frame-container" style="width: 600px; height: 400px; left: 1300px; top: 540px;">
         <div class="frame-header">
             <h3 class="window-name-header">Invite de commandes</h3>
             <span class="ctx-button-span">
@@ -44,15 +48,18 @@
         </div>
         <iframe src="terminal.html" id="terminal-frame" class="window-frame"></iframe>
     </div>
-    <div id="timer-frame-container" class="frame-container" style="width: 700px; height: 500px">
+
+    <!--Timer Page-->
+    <div id="timer-frame-container" class="frame-container" style="width: 250px; height: 100px; left: 10px; top: 750px;">
         <div class="frame-header">
-            <h3 class="window-name-header">TDF viewer - Manuel</h3>
+            <h3 class="window-name-header">Horloge | décompte</h3>
             <span class="ctx-button-span">
                 <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('timer-frame'))">🗕</button>
             </span>
         </div>
         <iframe src="timer.html" id="timer-frame" class="window-frame"></iframe>
     </div>
+
     <script src="js/window.js"></script>
 </body>
 </html>

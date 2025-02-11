@@ -2,14 +2,16 @@ let commandInput = document.getElementById('command-input');
 let commandHistory = document.getElementById('command-history');
 let commandPrefix = document.getElementById('command-prefix');
 
-let currentDirectory = 'C:\\Users\\linfan'
-let knownDirectories = [ 'C:\\Users\\linfan', 'C:\\Users\\linfan\\Documents\\', 'C:\\Users\\linfan\\Téléchargements\\' ]
+let currentDirectory = 'C:/Users/linfan'
+let knownDirectories = [ 'C:/Users/linfan', 'C:/Users/linfan/Documents/', 'C:/Users/linfan/Téléchargements/' ]
 
+// This outputs text to the terminal
 function addCommandHistory(msg) {
     commandHistory.insertAdjacentHTML('beforeend', `<p>${msg}</p>`);
     commandHistory.scrollTop = commandHistory.scrollHeight;
 }
 
+// This function will execute any known commands
 function executeCommand(command, args) {
     addCommandHistory(`${currentDirectory}> ${commandInput.value}`);
     switch(command) {
@@ -27,6 +29,7 @@ function executeCommand(command, args) {
     }
 }
 
+// Command input handling
 commandInput.addEventListener('keydown', function(e) {
     let args;
     if (e.key === 'Enter') {

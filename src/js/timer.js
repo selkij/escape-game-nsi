@@ -1,19 +1,20 @@
 let timerInterval;
+
+function formatTime(time) {
+    return time < 10 ? "0" + time : time;
+}
+
 // Start the timer
 function startTimer() {
     let hours = 1;
     let minutes = 0;
     let seconds = 0;
 
-    if (timerInterval) return; // Prevent multiple timers from starting
     timerInterval = setInterval(function() {
         if(seconds === 0) {
             if(minutes === 0) {
                 if(hours === 0) {
-                    
                     clearInterval(timerInterval);
-                    alert("C'est fini, au revoir");
-                    window.close()
                 } else {
                     hours--;
                     minutes = 59;
@@ -28,14 +29,7 @@ function startTimer() {
         }
 
         document.getElementById('timer').textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
-    }, 1);
-    
+    }, 1000);
 }
 
-
-function formatTime(time) {
-    return time < 10 ? "0" + time : time;
-}
-
- 
-window.onload(startTimer())
+window.addEventListener('load', startTimer());
