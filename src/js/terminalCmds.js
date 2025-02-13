@@ -1,5 +1,9 @@
+/**
+ * Pour chaque dossier, afficher leurs contenus (limiter le nombre de dossiers
+ *    pour éviter un code à rallonge, ce n'est pas la priorité de faire quelque chose de fonctionnel ici).
+ */
 function dirCmd(currentDirectory) {
-    switch(currentDirectory) {
+    switch (currentDirectory) {
         case 'C:/Users/linfan':
             addCommandHistory("Documents/");
             addCommandHistory("Téléchargements/");
@@ -9,8 +13,11 @@ function dirCmd(currentDirectory) {
     }
 }
 
+/**
+ *  Permet de naviguer entre les dossiers.
+ */
 function cdCmd(directory, currentDirectory, knownDirectories) {
-    if(knownDirectories.includes(currentDirectory)) {
+    if (knownDirectories.includes(currentDirectory)) {
         return directory;
     } else {
         addCommandHistory('ERREUR: Veuillez spécifier un dossier valide.')

@@ -2,24 +2,25 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/terminal.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/terminal.css" rel="stylesheet">
     <script src="js/terminalCmds.js"></script>
     <title>Terminal</title>
 </head>
 <body>
-    <div id="terminal-box">
-        <div id="command-history">
-            <p>
-                Linussoft® Binbows XD™ [Version 5.1.248601]<br>
-                Bienvenue sur l'invite de commande.
-            </p>
-        </div>
-        <div id="command-box">
-            <p id="command-prefix" style="display: inline">C:/Users/linfan></p> <!--Prefix-->
-            <input placeholder="" id="command-input" autofocus>
-        </div>
+<div id="terminal-box">
+    <div id="command-history">
+        <p>
+            Linussoft® Binbows XD™ [Version 5.1.248601]<br>
+            Bienvenue sur l'invite de commande.
+        </p>
     </div>
-    <script src="js/terminal.js"></script>
+    <div id="command-box">
+        <p id="command-prefix" style="display: inline">C:/Users/linfan></p> <!--Prefix-->
+        <label for="command-input"></label>
+        <input autofocus id="command-input" placeholder="">
+    </div>
+</div>
+<script src="js/terminal.js"></script>
 </body>
 </html>

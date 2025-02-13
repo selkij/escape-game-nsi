@@ -1,4 +1,4 @@
+// Change la page de l'iframe en fonction de l'entrée.
 function recherche() {
-    var linkInput = document.getElementById('link-input').value;
-    document.getElementById('browser-frame').src = linkInput;
+    document.getElementById('browser-frame').src = document.getElementById('link-input').value;
 }

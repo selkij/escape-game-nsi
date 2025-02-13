@@ -1,14 +1,23 @@
 let frames = document.getElementsByClassName("frame-container");
 
+// Ajoute la possibilité de glisser chaque élément ayant la classe frame-container.
 Array.from(frames).forEach(frame => {
     dragElement(frame);
 });
 
+/**
+ * Cache la fenêtre en inversant l'état hidden de l'iframe
+ * @param frame iframe à cacher
+ */
 function hideWindowFrame(frame) {
     // This is used for when the minimize button is clicked
     frame.hidden = !frame.hidden;
 }
 
+/**
+ * Permet de glisser un élément sélectionné au préalable à la souris, à travers la page.
+ * @param element élément à glisser
+ */
 function dragElement(element) {
     let x1 = 0, y1 = 0, x2 = 0, y2 = 0;
     element.onmousedown = dragMouseDown;
@@ -16,7 +25,7 @@ function dragElement(element) {
     function dragMouseDown(e) {
         e.preventDefault();
 
-        // Get cursor position at start
+        // Récupère la position du curseur au début.
         x2 = e.clientX;
         y2 = e.clientY;
         document.onmouseup = closeDragElement;
@@ -26,19 +35,20 @@ function dragElement(element) {
     function elementDrag(e) {
         e.preventDefault();
 
-        // Calculate new cursor position
+        // Calcule la nouvelle position du curseur.
         x1 = x2 - e.clientX;
         y1 = y2 - e.clientY;
         x2 = e.clientX;
         y2 = e.clientY;
 
-        // Set new position of element
+        // Change la position de l'élément.
         element.style.top = (element.offsetTop - y1) + "px";
         element.style.left = (element.offsetLeft - x1) + "px";
     }
 
+
+    // Indique à l'élément de ne plus être glissé lorsque le clic est relâché.
     function closeDragElement() {
-        // Stop moving when mouse is released
         document.onmouseup = null;
         document.onmousemove = null;
     }

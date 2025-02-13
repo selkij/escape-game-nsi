@@ -2,16 +2,17 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/browser.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/browser.css" rel="stylesheet">
     <title>Browser</title>
 </head>
 <body>
-    <div id="search-bar-container">
-        <input placeholder="Saisir une addresse..." id="link-input">
-        <button onclick="recherche()">🔍</button>
-    </div>
-    <iframe src="browserpages/index.html" id="browser-frame"></iframe>
-    <script src="js/browser.js"></script>
+<div id="search-bar-container">
+    <label for="link-input"></label>
+    <input id="link-input" placeholder="Saisir une addresse...">
+    <button onclick="recherche()">🔍</button>
+</div>
+<iframe id="browser-frame" src="browserpages/index.html"></iframe>
+<script src="js/browser.js"></script>
 </body>
 </html>

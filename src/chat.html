@@ -1,16 +1,17 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/chat.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/chat.css" rel="stylesheet">
     <title>Messagerie</title>
 </head>
 <body>
-    <h1>Messagerie</h1>
-    <div id="message-box" style="overflow:scroll; height:50%;"></div>
-    <input placeholder="Entrez votre message..." id="msg-input"></input>
-    <button onclick="send_message('Vous', document.getElementById('msg-input').value)">Envoyer</button>
-    <script src="js/chat.js"></script>
+<h1>Messagerie</h1>
+<div id="message-box" style="overflow:scroll; height:50%;"></div>
+<label for="msg-input"></label>
+<input id="msg-input" placeholder="Entrez votre message...">
+<button onclick="send_message('Vous', document.getElementById('msg-input').value)">Envoyer</button>
+<script src="js/chat.js"></script>
 </body>
 </html>

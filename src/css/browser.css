@@ -3,7 +3,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: Tahoma, serif;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 h1 {
@@ -23,8 +23,8 @@ p {
     background-color: rgb(173, 173, 173);
 }
 
-#link-input{
-    color : grey;
+#link-input {
+    color: grey;
     width: 75%;
 }
 

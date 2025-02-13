@@ -3,7 +3,7 @@ html, body {
     height: 100%;
     margin: 5px;
     font-family: Tahoma, serif;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 #message-box {

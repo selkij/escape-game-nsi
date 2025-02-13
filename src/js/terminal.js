@@ -3,41 +3,47 @@ let commandHistory = document.getElementById('command-history');
 let commandPrefix = document.getElementById('command-prefix');
 
 let currentDirectory = 'C:/Users/linfan'
-let knownDirectories = [ 'C:/Users/linfan', 'C:/Users/linfan/Documents/', 'C:/Users/linfan/Téléchargements/' ]
+let knownDirectories = ['C:/Users/linfan', 'C:/Users/linfan/Documents/', 'C:/Users/linfan/Téléchargements/']
 
-// This outputs text to the terminal
+/**
+ * Affiche du texte dans le terminal, plus précisément, elle ajoute un élément dans l'historique.
+ */
 function addCommandHistory(msg) {
     commandHistory.insertAdjacentHTML('beforeend', `<p>${msg}</p>`);
     commandHistory.scrollTop = commandHistory.scrollHeight;
 }
 
-// This function will execute any known commands
+/**
+ * Permet d'exécuter toute commande connue.
+ */
 function executeCommand(command, args) {
     addCommandHistory(`${currentDirectory}> ${commandInput.value}`);
-    switch(command) {
+    switch (command) {
         case 'dir':
             dirCmd(currentDirectory);
             break;
         case 'cd':
-            if(args.length > 1) {
+            if (args.length > 1) {
                 cdCmd(args[0], currentDirectory, knownDirectories);
             }
             break;
         default:
-            addCommandHistory('ERREUR: Commande non reconnue. '+ command);
+            addCommandHistory('ERREUR: Commande non reconnue. ' + command);
             break;
     }
 }
 
-// Command input handling
-commandInput.addEventListener('keydown', function(e) {
+// Gestion des entrées de commande.
+commandInput.addEventListener('keydown', function (e) {
     let args;
+
     if (e.key === 'Enter') {
-        if(commandInput.value.length > 0) {
+        if (commandInput.value.length > 0) {
             let command = commandInput.value.split(' ')[0];
+
             if (commandInput.value.split(' ').length >= 2) {
                 args = commandInput.value.split(' ');
-                args.shift(); // remove the command from the args array
+                args.shift(); // Enlève le nom de la commande
                 console.log("command: " + command + " args: " + args)
             } else {
                 args = [];
