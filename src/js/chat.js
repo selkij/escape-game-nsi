@@ -5,4 +5,5 @@ function sendMessage(user, message) {
     element_p.textContent = `(${user}): ${message}`;
 
     div.append(element_p);
+    div.scrollTop = div.scrollHeight;
 }
