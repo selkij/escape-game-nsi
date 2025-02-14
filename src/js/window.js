@@ -1,4 +1,4 @@
-let frames = document.getElementsByClassName("frame-container");
+let frames = document.getElementsByClassName("frame-header");
 
 // Ajoute la possibilité de glisser chaque élément ayant la classe frame-container.
 Array.from(frames).forEach(frame => {
@@ -19,6 +19,7 @@ function hideWindowFrame(frame) {
  * @param element élément à glisser
  */
 function dragElement(element) {
+    element = element.parentElement;
     let x1 = 0, y1 = 0, x2 = 0, y2 = 0;
     element.onmousedown = dragMouseDown;
 

@@ -7,19 +7,9 @@
     <title>Escape Game</title>
 </head>
 <body>
-<!--Chat Page-->
-<div class="frame-container" id="chat-frame-container" style="width: 400px; height: 500px; left: 1500px; top: 20px;">
-    <div class="frame-header">
-        <h3 class="window-name-header">Messagerie | Anonyme</h3>
-        <span class="ctx-button-span">
-                <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('chat-frame'))">🗕</button>
-            </span>
-    </div>
-    <iframe class="window-frame" id="chat-frame" src="chat.html"></iframe>
-</div>
-
 <!--Web browser Page-->
-<div class="frame-container" id="browser-frame-container" style="width: 1000px; height: 700px; left: 450px; top: 90px;">
+<div class="frame-container" id="browser-frame-container"
+     style="width: 60%; left: 50%; top: 50%; transform: translate(-50%, -50%);">
     <div class="frame-header">
         <h3 class="window-name-header">Navigateur Internet</h3>
         <span class="ctx-button-span">
@@ -31,17 +21,18 @@
 </div>
 
 <!--Manual Page-->
-<div class="frame-container" id="manual-frame-container" style="width: 700px; height: 500px; left: 3px; top: 3px;">
+<div class="frame-container" id="manual-frame-container" style="width: 50%; left: 49%; top: 3%;">
     <div class="frame-header">
         <h3 class="window-name-header">TDF viewer | Manuel.tdf</h3>
         <span class="ctx-button-span">
-                <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('manual-frame'))">🗕</button>
-            </span>
+            <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('manual-frame'))">🗕</button>
+        </span>
     </div>
-    <iframe class="window-frame" id="manual-frame" src="manual.html"></iframe>
+    <iframe class="window-frame" id="manual-frame" src="manual.html" hidden></iframe>
 </div>
-<div class="frame-container" id="terminal-frame-container"
-     style="width: 600px; height: 400px; left: 1300px; top: 540px;">
+
+<!--Terminal Page-->
+<div class="frame-container" id="terminal-frame-container" style="width: 40%; left: 3%; top: 3%;">
     <div class="frame-header">
         <h3 class="window-name-header">Invite de commandes</h3>
         <span class="ctx-button-span">
@@ -49,11 +40,22 @@
                         onclick="hideWindowFrame(document.getElementById('terminal-frame'))">🗕</button>
             </span>
     </div>
-    <iframe class="window-frame" id="terminal-frame" src="terminal.html"></iframe>
+    <iframe class="window-frame" id="terminal-frame" src="terminal.html" hidden></iframe>
+</div>
+
+<!--Chat Page-->
+<div class="frame-container" id="chat-frame-container" style="width: 25%; left: 74%; top: 39%;">
+    <div class="frame-header">
+        <h3 class="window-name-header">Messagerie | Anonyme</h3>
+        <span class="ctx-button-span">
+                <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('chat-frame'))">🗕</button>
+            </span>
+    </div>
+    <iframe class="window-frame" id="chat-frame" src="chat.html"></iframe>
 </div>
 
 <!--Timer Page-->
-<div class="frame-container" id="timer-frame-container" style="width: 250px; height: 100px; left: 10px; top: 750px;">
+<div class="frame-container" id="timer-frame-container" style="width: 20%; left: 3%; top: 70%;">
     <div class="frame-header">
         <h3 class="window-name-header">Horloge | décompte</h3>
         <span class="ctx-button-span">
@@ -64,5 +66,6 @@
 </div>
 
 <script src="js/window.js"></script>
+<script src="js/escapegame.js"></script>
 </body>
 </html>

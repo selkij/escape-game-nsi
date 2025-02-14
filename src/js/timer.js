@@ -38,5 +38,3 @@ function startTimer() {
         document.getElementById('timer').textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
     }, 1000);
 }
-
-window.addEventListener('load', startTimer());

@@ -50,3 +50,23 @@ body {
 .ctx-button-span {
     margin: 5px;
 }
+
+#chat-frame {
+    height: 300px;
+}
+
+#browser-frame {
+    height: 500px;
+}
+
+#terminal-frame {
+    height: 300px;
+}
+
+#timer-frame {
+    height: 125px;
+}
+
+#manual-frame {
+    height: 400px;
+}
