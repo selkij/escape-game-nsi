@@ -7,64 +7,66 @@
     <title>Escape Game</title>
 </head>
 <body>
-<!--Web browser Page-->
-<div class="frame-container" id="browser-frame-container"
-     style="width: 60%; left: 50%; top: 50%; transform: translate(-50%, -50%);">
-    <div class="frame-header">
-        <h3 class="window-name-header">Navigateur Internet</h3>
-        <span class="ctx-button-span">
+<div id="windows">
+    <!--Web browser Page-->
+    <div class="frame-container" id="browser-frame-container"
+         style="width: 60%; left: 20%; top: 25%;">
+        <div class="frame-header">
+            <h3 class="window-name-header">Navigateur Internet</h3>
+            <span class="ctx-button-span">
                 <button class="ctx-button"
                         onclick="hideWindowFrame(document.getElementById('browser-frame'))">🗕</button>
             </span>
+        </div>
+        <iframe class="window-frame" id="browser-frame" src="browser.html"></iframe>
     </div>
-    <iframe class="window-frame" id="browser-frame" src="browser.html"></iframe>
-</div>
 
-<!--Manual Page-->
-<div class="frame-container" id="manual-frame-container" style="width: 50%; left: 49%; top: 3%;">
-    <div class="frame-header">
-        <h3 class="window-name-header">TDF viewer | Manuel.tdf</h3>
-        <span class="ctx-button-span">
+    <!--Manual Page-->
+    <div class="frame-container" id="manual-frame-container" style="width: 50%; left: 49%; top: 3%;">
+        <div class="frame-header">
+            <h3 class="window-name-header">TDF viewer | Manuelhacker.tdf</h3>
+            <span class="ctx-button-span">
             <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('manual-frame'))">🗕</button>
         </span>
+        </div>
+        <iframe class="window-frame" hidden id="manual-frame" src="manual.html"></iframe>
     </div>
-    <iframe class="window-frame" id="manual-frame" src="manual.html" hidden></iframe>
-</div>
 
-<!--Terminal Page-->
-<div class="frame-container" id="terminal-frame-container" style="width: 40%; left: 3%; top: 3%;">
-    <div class="frame-header">
-        <h3 class="window-name-header">Invite de commandes</h3>
-        <span class="ctx-button-span">
+    <!--Terminal Page-->
+    <div class="frame-container" id="terminal-frame-container" style="width: 35%; left: 3%; top: 3%;">
+        <div class="frame-header">
+            <h3 class="window-name-header">Invite de commandes</h3>
+            <span class="ctx-button-span">
                 <button class="ctx-button"
                         onclick="hideWindowFrame(document.getElementById('terminal-frame'))">🗕</button>
             </span>
+        </div>
+        <iframe class="window-frame" hidden id="terminal-frame" src="terminal.html"></iframe>
     </div>
-    <iframe class="window-frame" id="terminal-frame" src="terminal.html" hidden></iframe>
-</div>
 
-<!--Chat Page-->
-<div class="frame-container" id="chat-frame-container" style="width: 25%; left: 74%; top: 39%;">
-    <div class="frame-header">
-        <h3 class="window-name-header">Messagerie | Anonyme</h3>
-        <span class="ctx-button-span">
+    <!--Chat Page-->
+    <div class="frame-container" id="chat-frame-container" style="width: 25%; left: 74%; top: 49%;">
+        <div class="frame-header">
+            <h3 class="window-name-header">Messagerie | Anonyme</h3>
+            <span class="ctx-button-span">
                 <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('chat-frame'))">🗕</button>
             </span>
+        </div>
+        <iframe class="window-frame" id="chat-frame" src="chat.html"></iframe>
     </div>
-    <iframe class="window-frame" id="chat-frame" src="chat.html"></iframe>
-</div>
 
-<!--Timer Page-->
-<div class="frame-container" id="timer-frame-container" style="width: 20%; left: 3%; top: 70%;">
-    <div class="frame-header">
-        <h3 class="window-name-header">Horloge | décompte</h3>
-        <span class="ctx-button-span">
+    <!--Timer Page-->
+    <div class="frame-container" id="timer-frame-container" style="width: 20%; left: 3%; top: 70%;">
+        <div class="frame-header">
+            <h3 class="window-name-header">Horloge | décompte</h3>
+            <span class="ctx-button-span">
                 <button class="ctx-button" onclick="hideWindowFrame(document.getElementById('timer-frame'))">🗕</button>
             </span>
+        </div>
+        <iframe class="window-frame" id="timer-frame" src="timer.html"></iframe>
     </div>
-    <iframe class="window-frame" id="timer-frame" src="timer.html"></iframe>
 </div>
-
+<footer>zqdqzd</footer>
 <script src="js/window.js"></script>
 <script src="js/escapegame.js"></script>
 </body>

@@ -1,9 +1,19 @@
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
     background-image: url('../img/wallpaper.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #19a81d;
     overflow: hidden;
+}
+
+footer {
+    background: linear-gradient(360deg, rgba(0, 84, 227, 1) 0%, rgba(122, 150, 223, 1) 100%);
+    padding: 10px;
+    text-align: center;
 }
 
 .frame-container {
@@ -17,7 +27,7 @@ body {
     justify-content: space-between;
     width: auto;
     background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(15, 72, 158, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(90deg, rgba(0, 84, 227, 1) 0%, rgba(122, 150, 223, 1) 100%);
     box-shadow: 0 4px 5px rgba(0, 0, 0, 1);
     clip-path: inset(-10px -10px 0px -10px);
     align-items: flex-start;
@@ -51,8 +61,12 @@ body {
     margin: 5px;
 }
 
+#windows {
+    flex: 1;
+}
+
 #chat-frame {
-    height: 300px;
+    height: 400px;
 }
 
 #browser-frame {

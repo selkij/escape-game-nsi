@@ -1,16 +1,9 @@
 html, body {
-    width: 100%; /* force la page à se mettre à la taille de l'iframe et enpêche le scroll */
+    width: 100%; /* force la page à se mettre à la taille de iframe et empêche le scroll */
     height: 100%;
     margin: 5px;
     font-family: Tahoma, serif;
     overflow: hidden;
-}
-
-#message-box {
-    background-color: rgb(220, 220, 220);
-    margin-right: 30px;
-    border: 2px solid black;
-    padding: 5px;
 }
 
 h1 {
@@ -20,4 +13,25 @@ h1 {
 p {
     font-family: serif;
     font-size: 14px;
+}
+
+#message-box {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    height: 70vh;
+    border: 2px solid black;
+}
+
+#message-username {
+    background: linear-gradient(90deg, rgb(119, 135, 208) 0%, rgb(167, 173, 208) 100%);
+    padding: 5px;
+    margin: 0;
+}
+
+#message-history {
+    background-color: rgb(220, 220, 220);
+    flex: 1;
+    padding: 5px;
+    height: 100vh;
 }

@@ -2,8 +2,8 @@ let commandInput = document.getElementById('command-input');
 let commandHistory = document.getElementById('command-history');
 let commandPrefix = document.getElementById('command-prefix');
 
-let currentDirectory = 'C:/Users/linfan'
-let knownDirectories = ['C:/Users/linfan', 'C:/Users/linfan/Documents/', 'C:/Users/linfan/Téléchargements/']
+let currentDirectory = 'C:/Users/linfan';
+let knownDirectories = ['C:/Users/linfan'];
 
 /**
  * Affiche du texte dans le terminal, plus précisément, elle ajoute un élément dans l'historique.
