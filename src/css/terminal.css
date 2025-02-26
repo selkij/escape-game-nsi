@@ -19,14 +19,15 @@ p {
 #terminal-box {
     display: flex;
     flex-direction: column;
-    /*FIXME: command-input unfocusable after command-history scroll*/
 }
 
 #command-history {
     display: flex;
     flex-direction: column;
     width: 99%;
-    overflow-y: scroll;
+    max-width: 99%;
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 #command-input {

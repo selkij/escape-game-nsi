@@ -1,4 +1,24 @@
 /**
+ * Récupère la date actuelle et la formate d'une façon présentable et complète.
+ * @returns temps formaté
+ */
+function getFormattedTime() {
+    const now = new Date();
+    
+    // Obtenir la date et l'heure au format souhaité
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Mois commence à 0
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    
+    // Obtenir le fuseau horaire en abrégé
+    const timeZone = Intl.DateTimeFormat('fr-FR', { timeZoneName: 'short' }).format(now).split(' ')[1];
+
+    return `${year}-${month}-${day} ${hours}:${minutes} ${timeZone}`;
+}
+
+/**
  * Pour chaque dossier, afficher leurs contenus (limiter le nombre de dossiers
  *    pour éviter un code à rallonge, ce n'est pas la priorité de faire quelque chose de fonctionnel ici).
  */
@@ -22,21 +42,67 @@ function cdCmd(directory, currentDirectory, knownDirectories) {
     }
 }
 
+/**
+ * TODO
+ * @param {string} address
+ */
 function nmapCmd(address) {
     if (address === "203.45.67.89") {
-        addCommandHistory("Nmap scan report for google.com (203.45.67.89)\n" +
-            "Host is up (0.0049s latency).\n" +
-            "Other addresses for google.com (not scanned): 2a00:1450:4007:813::200e\n" +
-            "rDNS record for 203.45.67.89: par21s19-in-f14.1e100.net\n" +
-            "Not shown: 997 filtered tcp ports (no-response), 1 filtered tcp ports (net-unreach)\n" +
-            "PORT    STATE SERVICE\n" +
-            "80/tcp  open  http\n" +
-            "443/tcp open  https\n" +
-            "\n" +
-            "Nmap done: 1 IP address (1 host up) scanned in 4.97 seconds");
+        addCommandHistory(`Démarrage de Nmap 7.93 ( https://nmap.org ) à ${getFormattedTime()}<br>` +
+            "Rapport d'analyse Nmap pour 203.45.67.89<br>" +
+            "L'hôte est opérationnel (latence de 0.0049s).<br>" +
+            "PORT &nbsp&nbsp&nbsp ETAT SERVICE<br>" +
+            "80/tcp &nbsp ouvert http<br>" +
+            "8080/tcp ouvert http-proxy<br>" +
+            "<br>" +
+            "Nmap terminé : 1 adresse IP (1 hôte opérationnel) analysée en 4.97 secondes ");
     } else {
-        addCommandHistory("Starting Nmap 7.93 ( https://nmap.org ) at 2025-02-21 19:08 CET\n" +
-            "Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn\n" +
-            "Nmap done: 1 IP address (0 hosts up) scanned in 3.16 seconds");
+        addCommandHistory(`Démarrage de Nmap 7.93 ( https://nmap.org ) à ${getFormattedTime()}<br>` +
+            "Remarque : l'hôte semble en panne. S'il est réellement en service, mais bloque nos sondes ping, essayez -Pn<br>" +
+            "Nmap terminé : 1 adresse IP (1 hôte opérationnel) analysée en 3.16 secondes");
     }
+}
+
+/**
+ * TODO
+ * @param {*} args 
+ */
+function gobusterCmd(args) {
+    args.array.forEach(element => {
+        // TODO
+        /* Example
+            ===============================================================
+            Gobuster v3.5
+            by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+            ===============================================================
+            [+] Url:                     http://127.0.0.1:5500/
+            [+] Method:                  GET
+            [+] Threads:                 50
+            [+] Wordlist:                dirb/wordlists/common.txt
+            [+] Negative Status codes:   404
+            [+] User Agent:              gobuster/3.5
+            [+] Extensions:              txt,php,html
+            [+] Follow Redirect:         true
+            [+] Timeout:                 10s
+            ===============================================================
+            2025/02/26 09:49:10 Starting gobuster in directory enumeration mode
+            ===============================================================
+            /.cache               (Status: 200) [Size: 6076]
+            /.git/HEAD            (Status: 200) [Size: 21]
+            /bin                  (Status: 403) [Size: 1510]
+            /favicon.ico          (Status: 200) [Size: 29100]
+            /license              (Status: 200) [Size: 1083]
+            /LICENSE              (Status: 200) [Size: 1083]
+            /policies             (Status: 403) [Size: 1520]
+            /resources            (Status: 403) [Size: 1522]
+            /Resources            (Status: 403) [Size: 1522]
+            /secret.txt           (Status: 200) [Size: 0]
+            /src                  (Status: 200) [Size: 3364]
+            /tools                (Status: 403) [Size: 1514]
+            Progress: 18456 / 18460 (99.98%)
+            ===============================================================
+            2025/02/26 09:49:25 Finished
+            ===============================================================
+        */
+    });
 }

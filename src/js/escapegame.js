@@ -19,7 +19,6 @@ function startGame() {
     // Lorsque le joueur déclenche le rickroll.
     browserFrameContent.contentWindow.document.getElementById('rickroll-HAHA').addEventListener('click', () => {
         chatFrame.contentWindow.sendMessage('Anonyme', 'Je te croyais plus perspicace.. ', 2000);
-
     })
 }
 

@@ -30,6 +30,10 @@ function executeCommand(command, args) {
         case 'nmap':
             nmapCmd(args[0]);
             break;
+        case 'gobuster':
+            gobusterCmd(args);
+            break;
+        case 'help':
         default:
             addCommandHistory('ERREUR: Commande non reconnue. ' + command);
             break;
@@ -56,6 +60,8 @@ commandInput.addEventListener('keydown', function (e) {
             executeCommand(command, args)
             commandInput.value = '';
             commandPrefix.innerText = `${currentDirectory}> `;
+        } else {
+            addCommandHistory(`${currentDirectory}> `);
         }
     }
 });
