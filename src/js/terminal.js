@@ -27,6 +27,9 @@ function executeCommand(command, args) {
                 cdCmd(args[0], currentDirectory, knownDirectories);
             }
             break;
+        case 'nmap':
+            nmapCmd(args[0]);
+            break;
         default:
             addCommandHistory('ERREUR: Commande non reconnue. ' + command);
             break;
