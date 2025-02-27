@@ -24,6 +24,14 @@ p {
     color: red;
 }
 
+.lightblue {
+    color: lightblue;
+}
+
+.blue {
+    color: blue;
+}
+
 #terminal-box {
     display: flex;
     flex-direction: column;

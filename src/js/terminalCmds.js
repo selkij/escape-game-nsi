@@ -99,38 +99,6 @@ function nmapCmd(address) {
  *  @param {string} wordlist Liste de noms de fichiers à vérifier.
  */
 function gobusterCmd(type, args, address, wordlist) {
-    /* Example
-        ===============================================================
-        Gobuster v3.5
-        by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-        ===============================================================
-        [+] Url:                     http://127.0.0.1:5500/
-        [+] Method:                  GET
-        [+] Threads:                 10
-        [+] Wordlist:                dirb/wordlists/common.txt
-        [+] Negative Status codes:   404
-        [+] User Agent:              gobuster/3.5
-        [+] Timeout:                 10s
-        ===============================================================
-        2025/02/27 11:59:54 Starting gobuster in directory enumeration mode
-        ===============================================================
-        /.cache               (Status: 200) [Size: 6076]
-        /.git/HEAD            (Status: 200) [Size: 21]
-        /bin                  (Status: 403) [Size: 1510]
-        /favicon.ico          (Status: 200) [Size: 29100]
-        /license              (Status: 200) [Size: 1083]
-        /LICENSE              (Status: 200) [Size: 1083]
-        /policies             (Status: 403) [Size: 1520]
-        /resources            (Status: 403) [Size: 1522]
-        /Resources            (Status: 403) [Size: 1522]
-        /src                  (Status: 200) [Size: 3434]
-        /tools                (Status: 403) [Size: 1514]
-        Progress: 4458 / 4615 (96.60%)
-        ===============================================================
-        2025/02/27 11:59:59 Finished
-        ===============================================================
-        TODO
-    */
     addCommandHistory("===============================================================<br>" +
         "Gobuster v3.5<br>" +
         "par OJ Reeves (@TheColonial) et Christian Mehlmauer (@firefart)<br>" + 
@@ -153,7 +121,7 @@ function gobusterCmd(type, args, address, wordlist) {
     } else {
         setTimeout(() => addCommandHistory("/favicon.ico&nbsp<span class='green'>(Status: 200)</span> [Size: 29100]"), 1000);
         setTimeout(() => addCommandHistory("/index.html&nbsp<span class='green'>(Status: 200)</span> [Size: 784]"), 1200);
-        setTimeout(() => addCommandHistory("/css&nbsp<span class='green'>(Status: 200)</span> [Size: 170]"), 1350);
+        setTimeout(() => addCommandHistory("/css&nbsp<span class='lightblue'>(Status: 301)</span> [Size: 170] <span class='blue'>[--> /src/browserpages/css/]</span>"), 1350);
         setTimeout(() => addCommandHistory("/secret.txt&nbsp<span class='green'>(Status: 200)</span> [Size: 32]"), 2000);
         setTimeout(() => addCommandHistory("/tools&nbsp<span class='red'>(Status: 403)</span> [Size: 1514]"), 3500);
         setTimeout(() => addCommandHistory("Progress: 30745 / 31600 (97.33%)<br>" + 
