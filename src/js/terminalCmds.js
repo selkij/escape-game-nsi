@@ -1,25 +1,51 @@
 /**
- * Récupère la date actuelle et la formate d'une façon présentable et complète.
- * @returns temps formaté
+ *  Récupère la date actuelle et la formate d'une façon présentable et complète.
+ *  @returns temps formaté
  */
 function getFormattedTime() {
     const now = new Date();
     
-    // Obtenir la date et l'heure au format souhaité
+    // Obtenir la date et l'heure au format souhaité.
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0'); // Mois commence à 0
     const day = String(now.getDate()).padStart(2, '0');
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     
-    // Obtenir le fuseau horaire en abrégé
+    // Obtenir le fuseau horaire en abrégé.
     const timeZone = Intl.DateTimeFormat('fr-FR', { timeZoneName: 'short' }).format(now).split(' ')[1];
 
     return `${year}-${month}-${day} ${hours}:${minutes} ${timeZone}`;
 }
 
 /**
- * Pour chaque dossier, afficher leurs contenus (limiter le nombre de dossiers
+ *  Supprime tous les commandes précédentes dans la console.
+ */
+function clsCmd() {
+    document.getElementById('command-history').innerHTML = '';
+}
+
+/**
+ *  Affiche le contenu d'un fichier.
+ *  @param {string} file fichier à lire.
+ */
+function catCmd(file) {
+    switch(file) {
+        case 'important.txt':
+            addCommandHistory("Informations très importantes en conformité avec l'importance qui est apporté à l'importance de ce fichier");
+            break;
+        case 'commonwords.txt':
+            addCommandHistory("admin<br>backup<br>config<br>database<br>debug<br>hidden<br>images<br>" +
+                "includes<br>index.html<br>index.php<br>login<br>logs<br>private<br>robots.txt<br>secret<br>" +
+                "server-status<br>uploads<br>user<br>wp-admin<br>wp-content<br>wp-includes");
+            break;
+        default:
+            addCommandHistory('ERREUR: Fichier non trouvé.');
+    }
+}
+
+/**
+ *  Pour chaque dossier, afficher leurs contenus (limiter le nombre de dossiers
  *    pour éviter un code à rallonge, ce n'est pas la priorité de faire quelque chose de fonctionnel ici).
  */
 function dirCmd(currentDirectory) {
@@ -27,6 +53,7 @@ function dirCmd(currentDirectory) {
         case 'C:/Users/linfan':
             addCommandHistory("chat.jpg");
             addCommandHistory("important.txt");
+            addCommandHistory("commonwords.txt");
             break;
     }
 }
@@ -43,17 +70,18 @@ function cdCmd(directory, currentDirectory, knownDirectories) {
 }
 
 /**
- * TODO
- * @param {string} address
+ *  TODO
+ *  @param {string} address
  */
 function nmapCmd(address) {
+    // TODO: Rajouter du temps
     if (address === "203.45.67.89") {
         addCommandHistory(`Démarrage de Nmap 7.93 ( https://nmap.org ) à ${getFormattedTime()}<br>` +
             "Rapport d'analyse Nmap pour 203.45.67.89<br>" +
             "L'hôte est opérationnel (latence de 0.0049s).<br>" +
             "PORT &nbsp&nbsp&nbsp ETAT SERVICE<br>" +
-            "80/tcp &nbsp ouvert http<br>" +
-            "8080/tcp ouvert http-proxy<br>" +
+            "80/tcp &nbsp <span class='green'>ouvert</span> http<br>" +
+            "8080/tcp <span class='green'>ouvert</span> http-proxy<br>" +
             "<br>" +
             "Nmap terminé : 1 adresse IP (1 hôte opérationnel) analysée en 4.97 secondes ");
     } else {
@@ -64,45 +92,73 @@ function nmapCmd(address) {
 }
 
 /**
- * TODO
- * @param {*} args 
+ *  TODO
+ *  @param {string[]} args Arguments de la commande (ex: '-u').
+ *  @param {string} type Type d'utilisation de gobuster.
+ *  @param {string} address Addresse à vérifier.
+ *  @param {string} wordlist Liste de noms de fichiers à vérifier.
  */
-function gobusterCmd(args) {
-    args.array.forEach(element => {
-        // TODO
-        /* Example
-            ===============================================================
-            Gobuster v3.5
-            by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-            ===============================================================
-            [+] Url:                     http://127.0.0.1:5500/
-            [+] Method:                  GET
-            [+] Threads:                 50
-            [+] Wordlist:                dirb/wordlists/common.txt
-            [+] Negative Status codes:   404
-            [+] User Agent:              gobuster/3.5
-            [+] Extensions:              txt,php,html
-            [+] Follow Redirect:         true
-            [+] Timeout:                 10s
-            ===============================================================
-            2025/02/26 09:49:10 Starting gobuster in directory enumeration mode
-            ===============================================================
-            /.cache               (Status: 200) [Size: 6076]
-            /.git/HEAD            (Status: 200) [Size: 21]
-            /bin                  (Status: 403) [Size: 1510]
-            /favicon.ico          (Status: 200) [Size: 29100]
-            /license              (Status: 200) [Size: 1083]
-            /LICENSE              (Status: 200) [Size: 1083]
-            /policies             (Status: 403) [Size: 1520]
-            /resources            (Status: 403) [Size: 1522]
-            /Resources            (Status: 403) [Size: 1522]
-            /secret.txt           (Status: 200) [Size: 0]
-            /src                  (Status: 200) [Size: 3364]
-            /tools                (Status: 403) [Size: 1514]
-            Progress: 18456 / 18460 (99.98%)
-            ===============================================================
-            2025/02/26 09:49:25 Finished
-            ===============================================================
-        */
-    });
+function gobusterCmd(type, args, address, wordlist) {
+    /* Example
+        ===============================================================
+        Gobuster v3.5
+        by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+        ===============================================================
+        [+] Url:                     http://127.0.0.1:5500/
+        [+] Method:                  GET
+        [+] Threads:                 10
+        [+] Wordlist:                dirb/wordlists/common.txt
+        [+] Negative Status codes:   404
+        [+] User Agent:              gobuster/3.5
+        [+] Timeout:                 10s
+        ===============================================================
+        2025/02/27 11:59:54 Starting gobuster in directory enumeration mode
+        ===============================================================
+        /.cache               (Status: 200) [Size: 6076]
+        /.git/HEAD            (Status: 200) [Size: 21]
+        /bin                  (Status: 403) [Size: 1510]
+        /favicon.ico          (Status: 200) [Size: 29100]
+        /license              (Status: 200) [Size: 1083]
+        /LICENSE              (Status: 200) [Size: 1083]
+        /policies             (Status: 403) [Size: 1520]
+        /resources            (Status: 403) [Size: 1522]
+        /Resources            (Status: 403) [Size: 1522]
+        /src                  (Status: 200) [Size: 3434]
+        /tools                (Status: 403) [Size: 1514]
+        Progress: 4458 / 4615 (96.60%)
+        ===============================================================
+        2025/02/27 11:59:59 Finished
+        ===============================================================
+        TODO
+    */
+    addCommandHistory("===============================================================<br>" +
+        "Gobuster v3.5<br>" +
+        "par OJ Reeves (@TheColonial) et Christian Mehlmauer (@firefart)<br>" + 
+        "===============================================================<br>");
+    
+    addCommandHistory("[+] Url: " + address + "<br>" +
+        "[+] Méthode: GET<br>" +
+        "[+] Threads: 10<br>" +
+        "[+] Wordlist: " + wordlist + "<br>" +
+        "[+] Codes status négatifs: 404<br>" +
+        "[+] Agent utilisateur: gobuster/3.5<br>" +
+        "[+] Timeout: 5s<br>" +
+        "===============================================================<br>" +
+        `${getFormattedTime()} Démarrage du mode d'énumération de répertoires<br>` +
+        "===============================================================<br>");
+
+    if(address != "203.45.67.89:80") {
+        setTimeout(() => addCommandHistory(`ERREUR: erreur lors de l'exécution de gobuster: impossible de se connecter à ${address}: `+
+            `GET \"${address}\" : délai de contexte dépassé (Client.Timeout dépassé lors de l'attente des en-têtes)`), 5000);
+    } else {
+        setTimeout(() => addCommandHistory("/favicon.ico&nbsp<span class='green'>(Status: 200)</span> [Size: 29100]"), 1000);
+        setTimeout(() => addCommandHistory("/index.html&nbsp<span class='green'>(Status: 200)</span> [Size: 784]"), 1200);
+        setTimeout(() => addCommandHistory("/css&nbsp<span class='green'>(Status: 200)</span> [Size: 170]"), 1350);
+        setTimeout(() => addCommandHistory("/secret.txt&nbsp<span class='green'>(Status: 200)</span> [Size: 32]"), 2000);
+        setTimeout(() => addCommandHistory("/tools&nbsp<span class='red'>(Status: 403)</span> [Size: 1514]"), 3500);
+        setTimeout(() => addCommandHistory("Progress: 30745 / 31600 (97.33%)<br>" + 
+            "===============================================================<br>"+
+            `${getFormattedTime()} Finished<br>`+
+            "===============================================================<br>"), 3600);
+    }
 }

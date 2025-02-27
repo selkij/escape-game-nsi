@@ -16,6 +16,14 @@ p {
     font-size: 14px;
 }
 
+.green {
+    color: lightgreen;
+}
+
+.red {
+    color: red;
+}
+
 #terminal-box {
     display: flex;
     flex-direction: column;
@@ -41,6 +49,12 @@ p {
     background-size: 1px 1.2em;
 }
 
+#command-input:focus {
+    outline: none;
+    animation: none;
+    background-image: none;
+}
+
 @keyframes blink-empty {
     from {
         background-image: linear-gradient(rgb(255, 255, 255, 1), rgb(255, 255, 255, 1));
@@ -48,10 +62,4 @@ p {
     to {
         background-image: linear-gradient(rgb(255, 255, 255, 0), rgb(255, 255, 255, 0));
     }
-}
-
-#command-input:focus {
-    outline: none;
-    animation: none;
-    background-image: none;
 }

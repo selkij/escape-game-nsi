@@ -27,11 +27,21 @@ function executeCommand(command, args) {
                 cdCmd(args[0], currentDirectory, knownDirectories);
             }
             break;
+        case 'cat':
+            catCmd(args[0]);
+            break;
+        case 'cls':
+            clsCmd();
+            break;
         case 'nmap':
             nmapCmd(args[0]);
             break;
         case 'gobuster':
-            gobusterCmd(args);
+            if(args.length < 5) {
+                addCommandHistory('ERREUR: Veuillez spécifier les informations nécessaire au fonctionnement de gobuster.');
+                break;
+            }
+            gobusterCmd(args[0], [args[1], args[3]], args[2], args[4]);
             break;
         case 'help':
         default:

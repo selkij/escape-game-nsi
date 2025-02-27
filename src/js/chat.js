@@ -13,12 +13,7 @@ function sendMessage(user, message, offsetTime = 0) {
     element_p.textContent = `(${user}): ${message}`;
 
     setTimeout(() => {
-        if(user !== "Vous") {
-            notification.play();
-
-        } else {
-            sendSound.play();
-        }
+        user !== "Vous" ? notification.play() : sendSound.play();
 
         div.append(element_p);
         div.scrollTop = div.scrollHeight;
