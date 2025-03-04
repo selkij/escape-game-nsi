@@ -1,13 +1,12 @@
+let chatFrame = document.getElementById('chat-frame');
+let browserFrame = document.getElementById('browser-frame');
+let browserFrameContent = browserFrame.contentWindow.document.getElementById('browser-frame');
+
 /**
  * Commence l'escape game
  */
 function startGame() {
-    let chatFrame = document.getElementById('chat-frame');
-    let browserFrame = document.getElementById('browser-frame');
-    let browserFrameContent = browserFrame.contentWindow.document.getElementById('browser-frame');
-
     chatFrame.contentWindow.sendMessage('Vous', 'Qui êtes-vous?', 2000);
-
     chatFrame.contentWindow.sendMessage('Anonyme', 'Tu ne me connais pas, mais moi, je te connais suffisamment pour savoir que tu es capable de relever un défi d\'une importance capitale.', 5000);
     chatFrame.contentWindow.sendMessage('Vous', 'Quoi?', 7000);
     chatFrame.contentWindow.sendMessage('Anonyme', 'Voici ta mission : Il y a une machine. Rien de particulier à l’œil nu, mais en son sein se trouve un fichier nommé "wallet_access.txt". Ce fichier est la clé d\'un porte-monnaie contenant 45 bitcoins.', 10000);
@@ -19,7 +18,12 @@ function startGame() {
     // Lorsque le joueur déclenche le rickroll.
     browserFrameContent.contentWindow.document.getElementById('rickroll-HAHA').addEventListener('click', () => {
         chatFrame.contentWindow.sendMessage('Anonyme', 'Je te croyais plus perspicace.. ', 2000);
-    })
+    });
+}
+
+window.onSshConnect = function () {
+    // TODO
+    chatFrame.contentWindow.sendMessage('Anonyme', 'Mais nan wow wtf t tro for', 1000);
 }
 
 window.addEventListener('load', startGame);

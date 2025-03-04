@@ -4,6 +4,7 @@ let commandPrefix = document.getElementById('command-prefix');
 
 let currentDirectory = 'C:/Users/linfan';
 let knownDirectories = ['C:/Users/linfan'];
+window.commandPrefixText = `${currentDirectory}> `;
 
 /**
  * Affiche du texte dans le terminal, plus précisément, elle ajoute un élément dans l'historique.
@@ -17,7 +18,7 @@ function addCommandHistory(msg) {
  * Permet d'exécuter toute commande connue.
  */
 function executeCommand(command, args) {
-    addCommandHistory(`${currentDirectory}> ${commandInput.value}`);
+    addCommandHistory(`${window.commandPrefixText} ${commandInput.value}`);
     switch (command) {
         case 'dir':
             dirCmd(currentDirectory);
@@ -43,7 +44,13 @@ function executeCommand(command, args) {
             }
             gobusterCmd(args[0], [args[1], args[3]], args[2], args[4]);
             break;
-        case 'help':
+        case 'ssh':
+            if(args.length < 5) {
+                addCommandHistory('ERREUR: Veuillez spécifier les informations nécessaire au fonctionnement de ssh.');
+                break;
+            }
+            sshCmd(args[0], args[2], args[4], [args[1], args[3]]);
+            break;
         default:
             addCommandHistory('ERREUR: Commande non reconnue. ' + command);
             break;
@@ -69,9 +76,9 @@ commandInput.addEventListener('keydown', function (e) {
 
             executeCommand(command, args)
             commandInput.value = '';
-            commandPrefix.innerText = `${currentDirectory}> `;
+            commandPrefix.innerText = window.commandPrefixText
         } else {
-            addCommandHistory(`${currentDirectory}> `);
+            addCommandHistory(window.commandPrefixText);
         }
     }
 });

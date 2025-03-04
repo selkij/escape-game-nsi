@@ -47,6 +47,7 @@ p {
 }
 
 #command-input {
+    width: 75%;
     border: none;
     color: white;
     font-family: consolas, serif;

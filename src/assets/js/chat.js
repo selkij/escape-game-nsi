@@ -1,5 +1,5 @@
-let notification = new Audio('chat_notification.mp3');
-let sendSound = new Audio('keyboard_enter.mp3');
+let notification = new Audio('assets/audio/chat_notification.mp3');
+let sendSound = new Audio('assets/audio/keyboard_enter.mp3');
 
 /**
  * Ajoute un message dans la messagerie.
