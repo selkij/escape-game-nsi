@@ -85,3 +85,7 @@ footer {
 #manual-frame {
     height: 400px;
 }
+
+#gameover-frame{
+    height: 100vh;
+}

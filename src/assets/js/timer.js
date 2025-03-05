@@ -13,15 +13,22 @@ function formatTime(time) {
  * Commence le chronomètre d'une heure.
  */
 function startTimer() {
-    let hours = 1;
+    let hours = 0;
     let minutes = 0;
-    let seconds = 0;
+    let seconds = 1;
 
     timerInterval = setInterval(function () {
-        if (seconds === 0) {
+        if (seconds === 1) {
             if (minutes === 0) {
                 if (hours === 0) {
+                    // Lorsque le compte à rebours expire.
                     clearInterval(timerInterval);
+                    var frames = window.parent.document.getElementsByClassName('frame-container');
+                    Array.from(frames).forEach((frame) => {
+                        frame.style.display = 'none';
+                    });
+                    window.parent.document.getElementById('gameover-frame-container').style.display = 'flex';
+
                 } else {
                     hours--;
                     minutes = 59;

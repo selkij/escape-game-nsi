@@ -51,6 +51,10 @@ function executeCommand(command, args) {
             }
             sshCmd(args[0], args[2], args[4], [args[1], args[3]]);
             break;
+        case 'lshw':
+            lshwCmd(args[0], args[1]);
+            break;
+        case 'browser':
         default:
             addCommandHistory('ERREUR: Commande non reconnue. ' + command);
             break;
@@ -78,6 +82,7 @@ commandInput.addEventListener('keydown', function (e) {
             commandInput.value = '';
             commandPrefix.innerText = window.commandPrefixText
         } else {
+            commandPrefix.innerText = window.commandPrefixText
             addCommandHistory(window.commandPrefixText);
         }
     }

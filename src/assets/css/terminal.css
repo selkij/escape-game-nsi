@@ -38,7 +38,6 @@ p {
 }
 
 #command-history {
-    display: flex;
     flex-direction: column;
     width: 99%;
     max-width: 99%;
@@ -46,8 +45,13 @@ p {
     overflow-y: auto;
 }
 
+#command-box {
+    display: flex;
+}
+
 #command-input {
-    width: 75%;
+    width: 100%;
+    max-width: 100vw;
     border: none;
     color: white;
     font-family: consolas, serif;

@@ -161,11 +161,25 @@ function sshCmd(address, user, password, args) {
         setTimeout(() => addCommandHistory("ERREUR: Mot de passe invalide."), 2000);
     } else {
         setTimeout(() => {
+            clsCmd();
             addCommandHistory("Connexion réussie")
             window.commandPrefixText = "admin@203.45.67.89: ";
-            window.onSshConnect();
         }, 2500);
     }
 
+}
 
+function lshwCmd(arg, type) {
+    if(window.commandPrefixText !== "admin@203.45.67.89: ")
+    if(arg !== "-class") {
+        addCommandHistory("ERREUR: Une erreur d'interprétation des arguments est survenue.");
+    } else if (type !== "disk") {
+        addCommandHistory("Je n'ai pas besoin de faire celà.");
+    } else {
+        setTimeout(() => addCommandHistory("H/W path&nbsp;&nbsp; Device &nbsp;&nbsp; Class Description<br>" +
+            "------------------------------------------------<br>"+
+            "/0/0/0 &nbsp;/dev/sda &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disk 500GB Samsung SSD<br>"+
+            "/0/1/0 &nbsp;/dev/0x73646633 disk 500GB WD5000AAKX<br>"+
+            "/0/2/0 &nbsp;/dev/0x73646531 disk 1TB Seagate Barracuda<br>"), 1000);
+    }
 }
