@@ -1,5 +1,5 @@
-let notification = new Audio('assets/audio/chat_notification.mp3');
-let sendSound = new Audio('assets/audio/keyboard_enter.mp3');
+let notification = new Audio("assets/audio/chat_notification.mp3");
+let sendSound = new Audio("assets/audio/keyboard_enter.mp3");
 
 /**
  * Ajoute un message dans la messagerie.
@@ -8,14 +8,14 @@ let sendSound = new Audio('assets/audio/keyboard_enter.mp3');
  * @param offsetTime Envoyer le message après un temps offsetTime en millisecondes
  */
 function sendMessage(user, message, offsetTime = 0) {
-    let div = document.getElementById('message-history');
-    let element_p = document.createElement('p');
-    element_p.textContent = `(${user}): ${message}`;
+  let div = document.getElementById("message-history");
+  let element_p = document.createElement("p");
+  element_p.textContent = `(${user}): ${message}`;
 
-    setTimeout(() => {
-        user !== "Vous" ? notification.play() : sendSound.play();
+  setTimeout(() => {
+    user !== "Vous" ? notification.play() : sendSound.play();
 
-        div.append(element_p);
-        div.scrollTop = div.scrollHeight;
-    }, offsetTime)
+    div.append(element_p);
+    div.scrollTop = div.scrollHeight;
+  }, offsetTime);
 }
