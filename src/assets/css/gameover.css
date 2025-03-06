@@ -1,5 +1,26 @@
-* {
+body {
+    background-color: #003366; /* Couleur bleu de l'écran d'erreur */
+    color: white;
+    font-family: "Courier New", Courier, monospace; /* Police monospaced pour un effet terminal */
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    padding: 20px;
+    font-size: 16px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.error-message {
+    white-space: pre-wrap;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.error-code {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffcc00;
 }
