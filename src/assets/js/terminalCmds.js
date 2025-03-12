@@ -369,10 +369,10 @@ function unzipCmd(file, arg, password) {
     } else {
         if (arg !== "-P") {
             addCommandHistory("ERREUR: Une erreur d'interprétation des arguments est survenue.")
-        } else if (password === "test") {
+        } else if (password === "laclécmoi") {
             unzipped = true;
         } else {
-            addCommandHistory("ERREUR: Mot de passe incorrecte.");
+            addCommandHistory("ERREUR: Mot de passe incorrect.");
         }
     }
 }

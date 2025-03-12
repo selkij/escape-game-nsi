@@ -23,7 +23,7 @@ function startTimer() {
                 if (hours === 0) {
                     // Lorsque le compte à rebours expire.
                     clearInterval(timerInterval);
-                    var frames =
+                    let frames =
                         window.parent.document.getElementsByClassName("frame-container");
                     Array.from(frames).forEach((frame) => {
                         frame.style.display = "none";

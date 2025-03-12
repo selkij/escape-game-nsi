@@ -68,8 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if(finished) {
-                document.getElementById("gameover-frame").style.display = "flex";
+                document.getElementById("gameover-frame-container").style.display = "flex";
             }
+
+            let p = chatFrame.contentWindow.document.getElementById("message-history").querySelectorAll('p');
+            p.forEach(e => {
+                if(e.textContent === '(Vous): L2r1Yh2Vp3FhLQJZy7TGnM3B2XAoTnD7x5uGvFj6K5Zr9Z9Y9X9Z') {
+                    if(finished === false) {
+                        setTimeout(() => finished = true, 2000);
+                        document.getElementById('gameover-frame').contentWindow.document.getElementById("techinfo-crash").innerText = "TechInfo: Tu en as mis du temps, merci pour les BitCoins, adieu !"
+                    }
+                }
+            })
+
         }, 500);
     }, 5000);
 
