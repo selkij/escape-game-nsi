@@ -36,7 +36,7 @@ function clsCmd() {
 function catCmd(file) {
     switch (file) {
         case "wallet_access.txt":
-            if(unzipped) {
+            if (unzipped) {
                 // TODO
                 addCommandHistory("L2r1Yh2Vp3FhLQJZy7TGnM3B2XAoTnD7x5uGvFj6K5Zr9Z9Y9X9Z");
             } else {
@@ -78,7 +78,7 @@ function dirCmd() {
             addCommandHistory("plansMajoranna1.pdf");
             break;
         case "/mnt/sde1":
-            if (unzipped) {
+            if (window.unzipped) {
                 addCommandHistory("wallet_access.txt");
             } else {
                 addCommandHistory("wallet_access.zip");
@@ -100,8 +100,8 @@ function dirCmd() {
  */
 function cdCmd(directory, knownDirectories) {
     if (knownDirectories.includes(window.currentDirectory)) {
-        if (directory === "~/") {
-            if (window.commandPrefixText !== "admin@203.45.67.89: ") {
+        if (directory === "~/" || directory === "~") {
+            if (!window.commandPrefixText.startsWith("admin@203.45.67.89")) {
                 addCommandHistory("ERREUR: Veuillez spécifier un dossier valide.");
             } else {
                 window.currentDirectory = directory;
@@ -282,34 +282,26 @@ function sshCmd(address, user, password, args) {
             clsCmd();
             addCommandHistory("Connexion réussie");
             window.currentDirectory = "~/";
-            window.commandPrefixText = "admin@203.45.67.89: ";
+            window.commandPrefixText = "admin@203.45.67.89";
         }, 2500);
     }
 }
 
 /**
- * Liste les différents composants présent dans la machine.
- * @param {string} arg Argument de la commande (ex: '-class').
- * @param {string} type Type de composants à énumérer.
+ * Liste les différents composants présents dans la machine.
  */
-function lshwCmd(arg, type) {
-    if (window.commandPrefixText !== "admin@203.45.67.89: ") {
-        addCommandHistory("Je n'ai pas besoin de faire celà.");
-    } else if (arg !== "-class") {
-        addCommandHistory(
-            "ERREUR: Une erreur d'interprétation des arguments est survenue."
-        );
-    } else if (type !== "disk") {
+function lshwCmd() {
+    if (!window.commandPrefixText.startsWith("admin@203.45.67.89")) {
         addCommandHistory("Je n'ai pas besoin de faire celà.");
     } else {
         setTimeout(
             () =>
                 addCommandHistory(
-                    "H/W path&nbsp;&nbsp; Device &nbsp;&nbsp; Class Description<br>" +
+                    "H/W &nbsp;&nbsp;&nbsp;&nbsp;Chemin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Appareil Taille Description<br>" +
                     "------------------------------------------------<br>" +
-                    "/0/0/0 &nbsp;/dev/sda &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disk 500GB Samsung SSD<br>" +
-                    "/0/1/0 &nbsp;/dev/0x73646633 disk 500GB WD5000AAKX<br>" +
-                    "/0/2/0 &nbsp;/dev/0x73646531 disk 1TB Seagate Barracuda<br>"
+                    "/0/0/0 &nbsp;/dev/sda &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; disque &nbsp; 500GB &nbsp;Samsung SSD<br>" +
+                    "/0/1/0 &nbsp;/dev/0x73646633 disque &nbsp; 500GB &nbsp;WD5000AAKX<br>" +
+                    "/0/2/0 &nbsp;/dev/0x73646531 disque &nbsp; 1TB &nbsp;&nbsp; Seagate Barracuda<br>"
                 ),
             1000
         );
@@ -319,39 +311,25 @@ function lshwCmd(arg, type) {
 /**
  * Permet de rendre accessible un disque à un chemin précis.
  * @param {string} disk Disque à rendre accessible
- * @param {string} path Chemin final du disque.
  */
-function mountCmd(disk, path) {
-    if (window.commandPrefixText !== "admin@203.45.67.89: ") {
+function mountCmd(disk) {
+    if (!window.commandPrefixText.startsWith("admin@203.45.67.89")) {
         addCommandHistory("Je n'ai pas besoin de faire celà.");
-    } else if (path === undefined) {
-        addCommandHistory("ERREUR: Chemin cible non spécifié.");
     } else {
         switch (disk) {
             case "/dev/sdf3":
-                if (path === "/mnt/sdf3") {
-                    setTimeout(
-                        () => addCommandHistory(`Montage réussi de /dev/sdf3 à ${path}`),
-                        1300
-                    );
-                    window.knownDirectories.push(path);
-                } else {
-                    addCommandHistory("Je n'ai pas besoin de le mettre là.");
-                }
-
+                setTimeout(
+                    () => addCommandHistory(`Montage réussi de /dev/sdf3 accessible au répertoire /mnt/sdf3 .`),
+                    1300
+                );
+                window.knownDirectories.push('/mnt/sdf3');
                 break;
             case "/dev/sde1":
-                if (path === "/mnt/sde1") {
-                    setTimeout(
-                        () => addCommandHistory(`Montage réussi de /dev/sde1 à ${path}`),
-                        1300
-                    );
-                    window.knownDirectories.push(path);
-                    console.log(window.knownDirectories);
-                } else {
-                    addCommandHistory("Je n'ai pas besoin de le mettre là.");
-                }
-
+                setTimeout(
+                    () => addCommandHistory(`Montage réussi de /dev/sde1, accessible au répertoire /mnt/sde1 .`),
+                    1300
+                );
+                window.knownDirectories.push('/mnt/sde1');
                 break;
             default:
                 addCommandHistory("ERREUR: Disque inconnu");
@@ -361,13 +339,16 @@ function mountCmd(disk, path) {
 }
 
 /**
- * TODO
+ * Permet de décompresser un fichier zip. Un mot de passe est nécessaire lorsque protégé.
+ * @param {string} file Fichier à décompresser.
+ * @param {string} arg Argument de la classe (ex: '-p').
+ * @param {string} password Mot de passe du fichier zip lorsque protégé.
  * */
 function unzipCmd(file, arg, password) {
     if (file !== "wallet_access.zip") {
         addCommandHistory("Je n'ai pas besoin de faire celà avec ce fichier.");
     } else {
-        if (arg !== "-P") {
+        if (arg !== "-p") {
             addCommandHistory("ERREUR: Une erreur d'interprétation des arguments est survenue.")
         } else if (password === "laclécmoi") {
             unzipped = true;

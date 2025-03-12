@@ -56,10 +56,10 @@ function executeCommand(command, args) {
             sshCmd(args[0], args[2], args[4], [args[1], args[3]]);
             break;
         case "lshw":
-            lshwCmd(args[0], args[1]);
+            lshwCmd();
             break;
         case "mount":
-            mountCmd(args[0], args[1]);
+            mountCmd(args[0]);
             break;
         case "unzip":
             unzipCmd(args[0], args[1], args[2]);
@@ -89,10 +89,10 @@ commandInput.addEventListener("keydown", function (e) {
 
             executeCommand(command, args);
             commandInput.value = "";
-            commandPrefix.innerText = window.commandPrefixText;
+            commandPrefix.innerText = window.commandPrefixText === "admin@203.45.67.89" ? window.commandPrefixText + ` ${currentDirectory}:` : window.commandPrefixText;
         } else {
-            commandPrefix.innerText = window.commandPrefixText;
-            addCommandHistory(window.commandPrefixText);
+            commandPrefix.innerText = window.commandPrefixText === "admin@203.45.67.89" ? window.commandPrefixText + ` ${currentDirectory}:` : window.commandPrefixText;
+            addCommandHistory(window.commandPrefixText === "admin@203.45.67.89" ? window.commandPrefixText + ` ${currentDirectory}:` : window.commandPrefixText);
         }
     }
 });
