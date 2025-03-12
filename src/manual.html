@@ -10,39 +10,11 @@
 Manuel<br>
 
 <!--Brouillon-->
-<div id="nmap">
-    <h1>NMAP</h1>
+<div id="gobuster">
+    <h1>GoBuster</h1>
     <p>
-        <h2>🔎 Scan de base</h2>
-        nmap cible # Scan les ports ouverts sur une machine<br>
-
-        <h2>🎯 Types de scans</h2>
-        nmap -sS cible # Scan furtif SYN (par défaut en root)<br>
-        nmap -sT cible # Scan en mode connect() (moins furtif)<br>
-        nmap -sU cible # Scan UDP<br>
-        nmap -sV cible # Détection des versions des services<br>
-        nmap -A cible # Scan avancé (OS + version + traceroute + scripts)<br>
-        nmap -O cible> # Détection du système d’exploitation<br>
-
-        <h2>⚡ Optimisation et furtivité</h2>
-        nmap -T4 cible # Scan rapide<br>
-        nmap -T2 cible # Scan lent (furtif)<br>
-        nmap --min-rate 500 cible # Accélération en fixant un taux minimum de paquets/s<br>
-        nmap --max-retries 1 cible # Réduire le nombre de tentatives par port<br>
-
-        <h2>🛠 Utilisation de scripts NSE</h2>
-        nmap --script=vuln cible # Recherche de vulnérabilités connues<br>
-        nmap --script=http-enum cible # Enumération des services web<br>
-        nmap --script smb-os-discovery cible # Infos sur le SMB<br>
-
-        <h2>📜 Sortie et rapports</h2>
-        nmap -oN scan.txt cible # Sauvegarde en texte brut<br>
-        nmap -oX scan.xml cible # Sauvegarde en XML<br>
-        nmap -oG scan.gnmap cible # Format greppable<br>
-
-        <h2>🏠 Scan d’un réseau entier</h2>
-        nmap 192.168.1.0/24 # Scanner tout un sous-réseau<br>
-        nmap -sn 192.168.1.0/24 # Ping scan (trouve les machines actives)<br>
+        Les commandes de base:
+        <a href="https://hackertarget.com/gobuster-tutorial/" target="_blank">Un peu d'aide ?</a>
     </p>
 </div>
 
